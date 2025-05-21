@@ -4,9 +4,6 @@ local map = vim.keymap.set
 map("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 map("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
 
--- Clipboard: Copy operations to system clipboard
-map("n", "<leader>y", ":%y+<CR>", { desc = "Yank entire file to clipboard" })
-
 -- Buffer Navigation: Switch and manage buffers
 map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })

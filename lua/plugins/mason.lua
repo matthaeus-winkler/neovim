@@ -18,6 +18,7 @@ return {
           "lua_ls",
           "bashls",
           "ts_ls",
+          "angularls",
           "pyright",
         },
       })
