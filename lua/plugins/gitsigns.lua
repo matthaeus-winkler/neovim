@@ -33,9 +33,19 @@ return {
       map("n", "<leader>gA", gitsigns.stage_buffer, { desc = "Stage Buffer" })
       map("n", "<leader>gu", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
       map("n", "<leader>gR", function()
-        if vim.fn.confirm("Reset all changes in buffer?", "&Yes\n&No") == 1 then
-          gitsigns.reset_buffer()
-        end
+        vim.ui.select({ "Yes", "No" }, {
+          prompt = "Reset all changes in buffer?",
+          kind = "confirm",
+        }, function(choice)
+          if choice == "Yes" then
+            local success, err = pcall(gitsigns.reset_buffer)
+            if success then
+              vim.notify("Buffer reset successfully", vim.log.levels.INFO)
+            else
+              vim.notify("Failed to reset buffer: " .. err, vim.log.levels.ERROR)
+            end
+          end
+        end)
       end, { desc = "Reset Buffer" })
 
       -- Blame
