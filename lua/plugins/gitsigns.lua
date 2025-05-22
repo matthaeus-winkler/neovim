@@ -1,7 +1,11 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile", "BufEnter" },
   opts = {
+    signs = {
+      delete = { text = "󰍵" },
+      changedelete = { text = "󱕖" },
+    },
     attach_to_untracked = true,
     on_attach = function(bufnr)
       local gitsigns = require('gitsigns')
@@ -36,6 +40,7 @@ return {
 
       -- Blame
       map("n", "<leader>gb", function() gitsigns.blame_line({ full = true }) end, { desc = "Blame Line" })
+      map("n", "<leader>gB", function() gitsigns.blame() end, { desc = "Blame Buffer" })
 
       -- Diff
       map("n", "<leader>gd", gitsigns.diffthis, { desc = "Diff This" })
