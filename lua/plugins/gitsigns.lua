@@ -6,7 +6,6 @@ return {
       delete = { text = "󰍵" },
       changedelete = { text = "󱕖" },
     },
-    attach_to_untracked = true,
     on_attach = function(bufnr)
       local gitsigns = require('gitsigns')
 
