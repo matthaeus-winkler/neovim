@@ -8,7 +8,7 @@ return {
         { "<leader>d", group = "Diagnostics" },
         { "<leader>f", group = "Find" },
         { "<leader>g", group = "Git" },
-        { "<leader>l", group = "LSP" },
+        { "<leader>c", group = "Code" },
       },
     },
     keys = {
