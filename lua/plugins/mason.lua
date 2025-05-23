@@ -17,6 +17,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "bashls",
+          "html",
           "ts_ls",
           "angularls",
           "pyright",
