@@ -8,6 +8,7 @@ opt.winborder = "rounded"
 opt.signcolumn = "number"
 opt.cursorline = true
 opt.cursorlineopt = "number"
+opt.fillchars = { eob = " " }
 
 -- Search
 opt.ignorecase = true
