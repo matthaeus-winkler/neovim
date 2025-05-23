@@ -6,7 +6,6 @@ return {
       preset = "modern",
       spec = {
         { "<leader>d", group = "Diagnostics" },
-        { "<leader>e", group = "Explorer" },
         { "<leader>f", group = "Find" },
         { "<leader>g", group = "Git" },
         { "<leader>l", group = "LSP" },
