@@ -1,5 +1,22 @@
 local map = vim.keymap.set
 
+-- Code: Language server protocol and Code actions
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local bufnr = args.buf
+    map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action" })
+    map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+    map("n", "<leader>cd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+    map("n", "<leader>cD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
+    map("n", "<leader>ct", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
+    map("n", "<leader>cs", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature help" })
+    map("n", "<leader>ci", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation" })
+    map("n", "<leader>cw", "<cmd>Telescope lsp_workspace_symbols<CR>", { buffer = bufnr, desc = "Workspace symbols" })
+    map("n", "<leader>cu", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
+    map("n", "<leader>cy", "<cmd>Telescope lsp_document_symbols<CR>", { buffer = bufnr, desc = "Document symbols" })
+  end,
+})
+
 -- File Explorer: Manage NvimTree for file navigation
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 map("n", "<leader>E", "<cmd>NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
@@ -26,18 +43,6 @@ map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" 
 map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
 map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Keymaps" })
 map("n", "<leader>fc", "<cmd>Telescope commands<CR>", { desc = "Commands" })
-
--- Code: Language server protocol and Code actions
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-map("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to definition" })
-map("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
-map("n", "<leader>ct", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
-map("n", "<leader>cs", vim.lsp.buf.signature_help, { desc = "Signature help" })
-map("n", "<leader>cw", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Workspace symbols" })
-map("n", "<leader>cu", "<cmd>Telescope lsp_references<CR>", { desc = "Find references" })
-map("n", "<leader>cy", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
-map("n", "<leader>ci", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 
 -- Diagnostics: LSP diagnostic tools for errors, warnings, and navigation
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
