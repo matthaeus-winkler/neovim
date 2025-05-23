@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+-- Disable double leader key press to prevent cursor movement after which-key popup
+map("n", "<leader><leader>", "<Nop>")
+
 -- Code: Language server protocol and Code actions
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
