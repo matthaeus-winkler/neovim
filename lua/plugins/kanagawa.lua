@@ -42,7 +42,7 @@ return {
             -- Dashboard
             DashboardHeader = { fg = palette.autumnRed },
             DashboardFooter = { fg = palette.crystalBlue },
-            DashboardShortcut= { fg = palette.autumnGreen },
+            DashboardShortcut = { fg = palette.autumnGreen },
           }
         end,
       })
