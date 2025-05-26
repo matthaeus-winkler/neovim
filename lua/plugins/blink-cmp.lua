@@ -5,6 +5,10 @@ return {
     version = '1.*',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    opts = {},
+    opts = {
+      keymap = {
+        preset = "super-tab"
+      }
+    },
   }
 }
