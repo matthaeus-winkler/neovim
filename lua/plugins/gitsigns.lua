@@ -16,22 +16,22 @@ return {
       end
 
       -- Navigation
-      map("n", "<leader>gn", function() gitsigns.nav_hunk("next") end, { desc = "Next Hunk" })
-      map("n", "<leader>gp", function() gitsigns.nav_hunk("prev") end, { desc = "Previous Hunk" })
+      map("n", "<leader>hn", function() gitsigns.nav_hunk("next") end, { desc = "Next Hunk" })
+      map("n", "<leader>hp", function() gitsigns.nav_hunk("prev") end, { desc = "Previous Hunk" })
 
       -- Hunk Actions
-      map("n", "<leader>ga", gitsigns.stage_hunk, { desc = "Stage Hunk" })
-      map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "Reset Hunk" })
-      map("v", "<leader>ga", function()
+      map("n", "<leader>ha", gitsigns.stage_hunk, { desc = "Stage Hunk" })
+      map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset Hunk" })
+      map("v", "<leader>ha", function()
         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, { desc = "Stage Hunk" })
-      map("v", "<leader>gr", function()
+      map("v", "<leader>hr", function()
         gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, { desc = "Reset Hunk" })
-      map("n", "<leader>gv", gitsigns.preview_hunk, { desc = "Preview Hunk" })
-      map("n", "<leader>gA", gitsigns.stage_buffer, { desc = "Stage Buffer" })
-      map("n", "<leader>gu", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
-      map("n", "<leader>gR", function()
+      map("n", "<leader>hv", gitsigns.preview_hunk, { desc = "Preview Hunk" })
+      map("n", "<leader>hA", gitsigns.stage_buffer, { desc = "Stage Buffer" })
+      map("n", "<leader>hu", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
+      map("n", "<leader>hR", function()
         vim.ui.select({ "Yes", "No" }, {
           prompt = "Reset all changes in buffer?",
           kind = "confirm",
@@ -48,11 +48,11 @@ return {
       end, { desc = "Reset Buffer" })
 
       -- Blame
-      map("n", "<leader>gb", function() gitsigns.blame_line({ full = true }) end, { desc = "Blame Line" })
-      map("n", "<leader>gB", function() gitsigns.blame() end, { desc = "Blame Buffer" })
+      map("n", "<leader>hb", function() gitsigns.blame_line({ full = true }) end, { desc = "Blame Line" })
+      map("n", "<leader>hB", function() gitsigns.blame() end, { desc = "Blame Buffer" })
 
       -- Diff
-      map("n", "<leader>gd", gitsigns.diffthis, { desc = "Diff This" })
+      map("n", "<leader>hd", gitsigns.diffthis, { desc = "Diff This" })
     end,
   }
 }

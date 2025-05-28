@@ -7,16 +7,19 @@ map("n", "<leader><leader>", "<Nop>")
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
-    map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action" })
-    map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
-    map("n", "<leader>cd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
-    map("n", "<leader>cD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
-    map("n", "<leader>ct", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
-    map("n", "<leader>cs", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature help" })
-    map("n", "<leader>ci", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation" })
-    map("n", "<leader>cw", "<cmd>Telescope lsp_workspace_symbols<CR>", { buffer = bufnr, desc = "Workspace symbols" })
-    map("n", "<leader>cu", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
-    map("n", "<leader>cy", "<cmd>Telescope lsp_document_symbols<CR>", { buffer = bufnr, desc = "Document symbols" })
+    -- LSP Navigation
+    map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+    map("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
+    map("n", "gt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
+    map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Show hover documentation" })
+    map("n", "gra", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action", remap = true })
+    map("n", "grn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol", remap = true })
+    map("n", "grr", vim.lsp.buf.references, { buffer = bufnr, desc = "List references", remap = true })
+    map("n", "gri", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation", remap = true })
+    -- Telescope-Enhanced LSP Actions
+    map("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
+    map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", { buffer = bufnr, desc = "Document symbols" })
+    map("n", "<leader>lw", "<cmd>Telescope lsp_workspace_symbols<CR>", { buffer = bufnr, desc = "Workspace symbols" })
   end,
 })
 
