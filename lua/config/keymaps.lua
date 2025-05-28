@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "grn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol", remap = true })
     map("n", "grr", vim.lsp.buf.references, { buffer = bufnr, desc = "List references", remap = true })
     map("n", "gri", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation", remap = true })
+    map("n", "gO", vim.lsp.buf.document_symbol, { buffer = bufnr, desc = "Go to symbol", remap = true })
     -- Telescope-Enhanced LSP Actions
     map("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
     map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", { buffer = bufnr, desc = "Document symbols" })
