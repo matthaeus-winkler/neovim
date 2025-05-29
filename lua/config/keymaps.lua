@@ -10,12 +10,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- LSP Navigation
     map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
     map("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
-    map("n", "gt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
     map("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Show hover documentation" })
     map("n", "gra", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action", remap = true })
     map("n", "grn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol", remap = true })
     map("n", "grr", vim.lsp.buf.references, { buffer = bufnr, desc = "List references", remap = true })
     map("n", "gri", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation", remap = true })
+    map("n", "grt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
     map("n", "gO", vim.lsp.buf.document_symbol, { buffer = bufnr, desc = "Go to symbol", remap = true })
     -- Telescope-Enhanced LSP Actions
     map("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
