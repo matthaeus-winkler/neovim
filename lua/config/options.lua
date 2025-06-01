@@ -19,7 +19,7 @@ opt.splitbelow = true
 opt.splitright = true
 
 -- Navigation
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append("<>[]hl")
 
 -- Indentation and Formatting
 opt.tabstop = 2
