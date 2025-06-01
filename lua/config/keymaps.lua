@@ -24,10 +24,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- File Explorer: Manage NvimTree for file navigation
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-map("n", "<leader>E", "<cmd>NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
-
 -- Buffer Navigation: Switch and manage buffers
 map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })

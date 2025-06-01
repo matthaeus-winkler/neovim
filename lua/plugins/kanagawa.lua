@@ -22,6 +22,10 @@ return {
             NormalFloat = { bg = "none" },
             FloatBorder = { bg = "none" },
             FloatTitle = { bg = "none" },
+            --
+            -- Mini.files title
+            MiniFilesTitle = { bg = "none" },
+            MiniFilesTitleFocused = { bg = "none" },
 
             -- blink.cmp completion menu
             BlinkCmpMenu = { bg = "none", fg = palette.fujiWhite },

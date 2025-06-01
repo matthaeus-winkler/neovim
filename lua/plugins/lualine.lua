@@ -6,19 +6,6 @@ return {
       local custom_auto = require("lualine.themes.auto")
       custom_auto.normal.c.bg = "none"
 
-      local nvim_tree_shift = {
-        function()
-          local winnr = require("nvim-tree.view").get_winnr()
-          if winnr == nil then
-            return ""
-          end
-          return string.rep(" ", vim.api.nvim_win_get_width(winnr) - 1)
-        end,
-        cond = require("nvim-tree.view").is_visible,
-        color = "NvimTreeNormal",
-        section_separators = { left = "", right = "" },
-      }
-
       require("lualine").setup({
         options = {
           theme = custom_auto,
@@ -36,7 +23,6 @@ return {
         },
         tabline = {
           lualine_a = {
-            nvim_tree_shift,
             {
               "buffers",
               section_separators = { left = "", right = "" },
