@@ -41,3 +41,6 @@ opt.foldlevelstart = 99
 -- Performance
 opt.updatetime = 250
 opt.timeoutlen = 400
+
+-- Enable hidden buffers to prevent unloading when switching, ensuring terminal state persists (ToggleTerm)
+vim.o.hidden = true
