@@ -15,12 +15,14 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls",
-					"bashls",
-					"html",
-					"ts_ls",
 					"angularls",
+					"bashls",
+					"eslint",
+					"html",
+					"lua_ls",
+					"marksman",
 					"pyright",
+					"ts_ls",
 				},
 			})
 		end,
