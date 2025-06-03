@@ -31,7 +31,6 @@ opt.clipboard = "unnamedplus"
 
 -- Undo History
 opt.undofile = true
-opt.undodir = vim.fn.expand("~/.config/nvim/undo")
 
 -- Code Folding
 opt.foldmethod = "expr"
