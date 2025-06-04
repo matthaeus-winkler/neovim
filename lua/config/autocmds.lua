@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Manual <Esc> mapping: clears search if active, else acts as a normal <Esc>
 vim.keymap.set("n", "<Esc>", function()
   if vim.v.hlsearch == 1 then
-    vim.cmd("nohlsearch")
+    vim.cmd.nohlsearch()
   else
     local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
     vim.api.nvim_feedkeys(esc, "n", true)
@@ -20,6 +20,7 @@ end, { desc = "Clear search highlight if active, else normal <Esc>" })
 -- TODO: Workaround until Telescope supports winborder
 -- https://github.com/nvim-telescope/telescope.nvim/issues/3436
 vim.api.nvim_create_autocmd("User", {
+  group = vim.api.nvim_create_augroup("TelescopeBorderFix", { clear = true }),
   pattern = "TelescopeFindPre",
   callback = function()
     vim.opt_local.winborder = "none"
