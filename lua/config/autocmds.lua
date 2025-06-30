@@ -32,20 +32,3 @@ vim.api.nvim_create_autocmd("User", {
     })
   end,
 })
-
--- Show Dashboard when all buffers are closed
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = vim.api.nvim_create_augroup("DashboardOnEmpty", { clear = true }),
-  callback = function()
-    local bufname = vim.api.nvim_buf_get_name(0)
-    local buftype = vim.bo.buftype
-    local filetype = vim.bo.filetype
-
-    -- If we land in an empty unnamed buffer, and it's not already the dashboard
-    if bufname == "" and buftype == "" and filetype ~= "dashboard" then
-      vim.schedule(function()
-        vim.cmd("Dashboard")
-      end)
-    end
-  end,
-})
