@@ -18,6 +18,7 @@ return {
           "angularls",
           "bashls",
           "eslint",
+          "gopls",
           "html",
           "lua_ls",
           "marksman",
