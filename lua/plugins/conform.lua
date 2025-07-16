@@ -15,11 +15,11 @@ return {
   ---@module "conform"
   opts = {
     formatters_by_ft = {
-      lua = { "stylua" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
-      typescript = { "prettierd", "prettier", stop_after_first = true },
-      sh = { "shfmt" },
+      lua = { "stylua" },
       markdown = { "prettierd", "prettier", stop_after_first = true },
+      sh = { "shfmt" },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
     },
     default_format_opts = {
