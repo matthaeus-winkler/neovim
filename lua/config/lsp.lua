@@ -22,3 +22,8 @@ lsp.config("helm_ls", {
     }
   },
 })
+
+-- Enable all configured LSPs
+for name, _ in pairs(lsp.config) do
+  lsp.enable(name)
+end
