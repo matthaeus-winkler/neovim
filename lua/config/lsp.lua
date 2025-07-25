@@ -1,5 +1,6 @@
 local lsp = vim.lsp
 
+-- Custom settings that extend nvim-lspconfig defaults
 lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -23,7 +24,23 @@ lsp.config("helm_ls", {
   },
 })
 
--- Enable all configured LSPs
-for name, _ in pairs(lsp.config) do
-  lsp.enable(name)
+-- Enable all servers (uses nvim-lspconfig defaults + any custom settings above)
+local servers = {
+  "angularls",
+  "bashls",
+  "eslint",
+  "gopls",
+  "helm_ls",
+  "html",
+  "jdtls",
+  "lua_ls",
+  "marksman",
+  "pyright",
+  "terraformls",
+  "ts_ls",
+  "yamlls",
+}
+
+for _, server in ipairs(servers) do
+  lsp.enable(server)
 end
