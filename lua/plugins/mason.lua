@@ -21,6 +21,7 @@ return {
           "gopls",
           "helm_ls",
           "html",
+          "jdtls",
           "lua_ls",
           "marksman",
           "pyright",
