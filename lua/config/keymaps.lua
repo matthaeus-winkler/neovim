@@ -30,8 +30,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Buffer Navigation: Switch and manage buffers
-map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 
 -- Window Navigation: Move between Neovim windows
