@@ -15,12 +15,14 @@ return {
   ---@module "conform"
   opts = {
     formatters_by_ft = {
+      html = { "prettierd", "prettier", stop_after_first = true },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettierd", "prettier", stop_after_first = true },
       lua = { "stylua" },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       sh = { "shfmt" },
       typescript = { "prettierd", "prettier", stop_after_first = true },
+      xml = { "xmlformat", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
     },
     default_format_opts = {
