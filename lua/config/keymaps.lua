@@ -1,12 +1,13 @@
 local map = vim.keymap.set
 
--- Disable double leader key press to prevent cursor movement after which-key popup
+-- Disable double leader (prevents cursor jump after which-key timeout)
 map("n", "<leader><leader>", "<Nop>")
 
 -- Code: Language server protocol and Code actions
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
+
     -- LSP Navigation
     map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
     map("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
@@ -17,42 +18,39 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gri", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation", remap = true })
     map("n", "grt", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
     map("n", "gO", vim.lsp.buf.document_symbol, { buffer = bufnr, desc = "Go to symbol", remap = true })
-    -- Telescope-Enhanced LSP Actions
-    map("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
-    map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", { buffer = bufnr, desc = "Document symbols" })
-    map(
-      "n",
-      "<leader>lw",
-      "<cmd>Telescope lsp_workspace_symbols<CR>",
-      { buffer = bufnr, desc = "Workspace symbols" }
-    )
+
+    -- fzf-enhanced LSP Actions
+    map("n", "<leader>lr", "<cmd>FzfLua lsp_references<CR>", { buffer = bufnr, desc = "Find references" })
+    map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>", { buffer = bufnr, desc = "Document symbols" })
+    map("n", "<leader>lw", "<cmd>FzfLua lsp_workspace_symbols<CR>", { buffer = bufnr, desc = "Workspace symbols" })
   end,
 })
 
--- Buffer Navigation: Switch and manage buffers
+-- Buffer / Window
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
-
--- Window Navigation: Move between Neovim windows
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
--- Telescope: Search and navigation with Telescope
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
-map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help tags" })
-map("n", "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search current file" })
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
-map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Keymaps" })
-map("n", "<leader>fc", "<cmd>Telescope commands<CR>", { desc = "Commands" })
-map("n", "<leader>hc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
-map("n", "<leader>hs", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
+-- fzf-lua core pickers
+map("x", "<leader>fg", "<cmd>FzfLua grep_visual<CR>", { desc = "Grep selection" })
+map("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", { desc = "Live grep" })
+map("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "Find files" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "Buffers" })
+map("n", "<leader>fh", "<cmd>FzfLua helptags<CR>", { desc = "Help tags" })
+map("n", "<leader>fs", "<cmd>FzfLua grep_curbuf<CR>", { desc = "Search current file" })
+map("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", { desc = "Recent files" })
+map("n", "<leader>fk", "<cmd>FzfLua keymaps<CR>", { desc = "Keymaps" })
+map("n", "<leader>fc", "<cmd>FzfLua commands<CR>", { desc = "Commands" })
+map("n", "<leader>fr", "<cmd>FzfLua resume<CR>", { desc = "Resume last picker" })
+map("n", "<leader>fw", "<cmd>FzfLua grep_cword<CR>", { desc = "Grep word under cursor" })
+map("n", "<leader>hc", "<cmd>FzfLua git_commits<CR>", { desc = "Git commits" })
+map("n", "<leader>hs", "<cmd>FzfLua git_status<CR>", { desc = "Git status" })
 
--- Diagnostics: LSP diagnostic tools for errors, warnings, and navigation
+-- Diagnostics
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-map("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", { desc = "List all diagnostics" })
+map("n", "<leader>dl", "<cmd>FzfLua diagnostics_workspace<CR>", { desc = "List all diagnostics" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 map("n", "<leader>dn", function()
   vim.diagnostic.jump({ count = 1, float = true })

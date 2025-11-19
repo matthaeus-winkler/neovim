@@ -36,9 +36,6 @@ return {
             TabLineFill = { bg = "none" },
             StatusLine = { bg = "none" },
 
-            -- Telescope
-            TelescopeBorder = { bg = "none" },
-
             -- Dashboard
             DashboardHeader = { fg = palette.autumnRed },
             DashboardFooter = { fg = palette.crystalBlue },

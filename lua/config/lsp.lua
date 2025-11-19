@@ -24,7 +24,7 @@ lsp.config("helm_ls", {
   },
 })
 
--- Enable all servers (uses nvim-lspconfig defaults + any custom settings above)
+-- List of servers
 local servers = {
   "angularls",
   "bashls",
@@ -41,6 +41,7 @@ local servers = {
   "yamlls",
 }
 
+-- Enable every server with the same on_attach
 for _, server in ipairs(servers) do
   lsp.enable(server)
 end

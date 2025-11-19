@@ -24,7 +24,7 @@ return {
               desc = "Find Files",
               key = "f",
               action = function()
-                require("telescope.builtin").find_files()
+                require("fzf-lua").files()
               end,
             },
             {
@@ -33,7 +33,7 @@ return {
               desc = "Recent Files",
               key = "o",
               action = function()
-                require("telescope.builtin").oldfiles()
+                require("fzf-lua").oldfiles()
               end,
             },
             {
@@ -42,7 +42,7 @@ return {
               desc = "Grep Files",
               key = "g",
               action = function()
-                require("telescope.builtin").live_grep()
+                require("fzf-lua").live_grep()
               end,
             },
             {
