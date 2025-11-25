@@ -8,6 +8,10 @@ return {
           ["<C-u>"] = "preview-half-page-up",
           ["<C-d>"] = "preview-half-page-down",
         },
+        fzf = {
+          ["ctrl-u"] = "preview-half-page-up",
+          ["ctrl-d"] = "preview-half-page-down",
+        },
       },
     },
   },
