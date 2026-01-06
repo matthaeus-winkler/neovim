@@ -7,8 +7,16 @@ lsp.config("lua_ls", {
       diagnostics = {
         globals = { "vim" },
       },
+
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+        },
+      },
+
+      telemetry = {
+        enable = false,
       },
     },
   },
