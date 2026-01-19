@@ -32,6 +32,15 @@ lsp.config("helm_ls", {
   },
 })
 
+lsp.config("jsonls", {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
+
 -- List of servers
 local servers = {
   "angularls",
@@ -41,6 +50,7 @@ local servers = {
   "helm_ls",
   "html",
   "jdtls",
+  "jsonls",
   "lua_ls",
   "marksman",
   "pyright",
