@@ -40,3 +40,6 @@ opt.foldlevelstart = 99
 -- Performance
 opt.updatetime = 250
 opt.timeoutlen = 400
+
+-- File Reloading
+opt.autoread = true
