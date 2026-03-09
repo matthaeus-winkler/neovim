@@ -21,6 +21,7 @@ return {
         json = { "prettier", stop_after_first = true },
         lua = { "stylua" },
         markdown = { "prettier", stop_after_first = true },
+        python = { "ruff_format" },
         sh = { "shfmt" },
         typescript = { "prettier", stop_after_first = true },
         xml = { "xmlformat", stop_after_first = true },
