@@ -1,7 +1,6 @@
 local opt = vim.opt
 
 -- Visual Interface
-opt.termguicolors = true
 opt.number = true
 opt.relativenumber = true
 opt.winborder = "rounded"
